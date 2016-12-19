@@ -1,0 +1,41 @@
+{% extends 'antiques/base.html' %}
+{% block title %}Black Door Mercantile{% endblock %}
+
+{% block body %}
+<div class=" category-container container-fluid">
+
+    <!--jumbotron top-->
+    <div class="jumbotron jumbotron-top">
+    <h2 id="jumbotron-title">Welcome to Black Door Mercantile</h2>
+    <p id="jumbotron-text">Bootstrap is the most popular HTML, CSS, and JS framework for developing
+    responsive, mobile-first projects on the web.</p>
+    </div>
+
+    <!--Categories-->
+    <div class="row text-center">
+
+        {% if all_categories %}
+            {% for category in all_categories %}
+            <div class="col-sm-4 col-lg-2">
+                <div class="thumbnail">
+                    <a href="{% url 'antiques:category_index' category.id %}">
+                        <img src="{{ category.category_thumbnail.url }}" class="img-responsive">
+                    </a>
+                    <div class="caption">
+                        <h3>{{ category.name }}</h3>
+                        <!--View Details-->
+                        <a href="{% url 'antiques:category_index' category.id %}" class="btn btn-primary btn-sm" role="button">Explore</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>No categories are available yet</p>
+        {% endif %}
+
+    </div>
+
+</div>
+{% endblock %}
+
+

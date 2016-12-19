@@ -1,0 +1,33 @@
+{% extends 'antiques/base.html' %}
+{% block title %}Categories{% endblock %}
+
+{% block body %}
+{% if category %}
+    <div class="container-fluid">
+        <h1 class="category-main-title">{{ category.name }}</h1>
+        <div class="jumbotron">
+        {% if category.type_set.count != 0 %}
+            {% for type in category.type_set.all %}
+            <div class="media">
+                <div class="media-left">
+                    <img src="{{ type.type_thumbnail.url }}" class="media-left" style="width:150px"/>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">{{ type.era }} - {{ type.short_description }}:&nbsp;&nbsp;
+                        <a href="{% url 'antiques:type_detail' category.id  type.id%}" class="btn btn-primary btn-sm" role="button">See More</a>
+                    </h4>
+                    <p>{{ type.description }}</p>
+                </div>
+            </div>
+            <hr>
+            {% endfor %}
+        {% else %}
+            <p>This type has no categories yet.</p>
+        {% endif %}
+        </div>
+    </div>
+{% else %}
+    <p>No categories are available.</p>
+{% endif %}
+{% endblock %}
+

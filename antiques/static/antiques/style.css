@@ -1,0 +1,53 @@
+li a {
+    color: green;
+}
+
+body {
+    background: url("images/background-paper.jpg");
+    padding-top: 65px;
+}
+
+.navbar {
+    border-radius: 0;
+}
+
+.navbar-brand {
+    font-family: 'Diplomata SC', cursive;
+    font-size: 110%;
+    line-height: 75%;
+}
+
+.facebook-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.jumbotron-top {
+    background-color:transparent !important;
+}
+
+#jumbotron-title {
+    text-align: center;
+    font-family: 'Diplomata SC', cursive;
+}
+
+#jumbotron-text {
+    text-align: center;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+.thumbnail img {
+    max-height:125px;
+    max-width: 250px;
+    height: 125px;
+    width: 250px;
+}
+
+.category-main-title {
+    text-align: center;
+    font-family: 'Diplomata SC', cursive;
+}
+
+
+
+

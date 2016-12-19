@@ -1,0 +1,58 @@
+{% extends 'antiques/base.html' %}
+{% block title %}Categories{% endblock %}
+
+{% block body %}
+<div class="container-fluid type-container">
+
+    <div class="row">
+
+        <!-- Left Item Basic Info -->
+        <div class="col-sm-4 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <a href="#">
+                        {% if type.type_thumbnail %}
+                            <img src="{{ type.type_thumbnail.url }}" class="img-responsive">
+                        {% else %}
+                            <h3>No image to display</h3>
+                        {% endif %}
+                    </a>
+                    <h1>{{ type.era }} <small>{{ type.color }} {{ type.short_description }}</small></h1>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Item Table With Full Info -->
+        <div class="col-sm-8 col-md-9">
+
+            <ul class="nav nav-pills" style="margin-bottom: 10px;">
+                <li role="presentation" class="active"><a href="#">Purchase</a></li>
+            </ul>
+
+            <table class="table">
+                <thead>
+                    <th>Category</th>
+                    <th>Era</th>
+                    <th>Color</th>
+                    <th>Description</th>
+                    <th>Shippable</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ type.category }}</td>
+                        <td>{{ type.era }}</td>
+                        <td>{{ type.color }}</td>
+                        <td>{{ type.short_description}}</td>
+                        <td>{{ type.shippable }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="panel panel-default type-detail-panel">
+                <h3>{{ type.description }}</h3>
+            </div>
+
+        </div>
+
+</div>
+{% endblock %}
